@@ -1,5 +1,5 @@
-#Web Crawler and Data Cleansing Pipeline
-Overview
+# Web Crawler and Data Cleansing Pipeline
+# Overview
 
 This project is a Python-based pipeline designed for web scraping and subsequent data cleansing. The pipeline reads data from an Excel file, consolidates it into a single textual format, and applies a series of cleaning operations to remove unwanted sections, characters, and inconsistencies from the text.
 Features
@@ -11,7 +11,7 @@ Features
         Elimination of non-ASCII characters and excessive whitespace.
         Correction of formatting issues (e.g., leading zeros in numbers).
 
-Requirements
+# Requirements
 
 To run the code, make sure you have the following Python libraries installed:
 
@@ -27,7 +27,7 @@ bash
 
 pip install -r requirements.txt
 
-How to Use
+# How to Use
 
     Input Data: Place your Excel file (e.g., filename.xlsx) in the root directory.
     Run the Notebook:
