@@ -37,3 +37,6 @@ pip install -r requirements.txt
     Functions:
         cleanse_text(text): Cleans the text by removing unwanted sections and fixing formatting issues.
         remove_leading_zeros(text): Removes unnecessary leading zeros from numbers.
+# Output
+
+The output will be a DataFrame with a csv cleansed version of the text that can be exported or used for further analysis.
