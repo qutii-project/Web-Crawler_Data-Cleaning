@@ -1,42 +1,46 @@
-# Web Crawler and Data Cleansing Pipeline
 # Overview
+The notebook processes scientific document data from a JSON format, performs text cleansing, and extracts key information such as the title, DOI, and full-text content. The cleaned content is then saved in a PDF file.It parses JSON data, cleanses the text content, and generates a structured PDF report. This tool is useful for transforming raw data from research papers into readable, structured formats for further analysis.
 
-This project is a Python-based pipeline designed for web scraping and subsequent data cleansing. The pipeline reads data from an Excel file, consolidates it into a single textual format, and applies a series of cleaning operations to remove unwanted sections, characters, and inconsistencies from the text.
-Features
+# Key Functions
+Text Cleansing:
 
-    Data Loading: Load data from an Excel file using Pandas.
-    Text Consolidation: Merge multiple columns of data into a single "text" column for processing.
-    Text Cleansing:
-        Removal of unwanted sections such as "abstract", "methods", and "references".
-        Elimination of non-ASCII characters and excessive whitespace.
-        Correction of formatting issues (e.g., leading zeros in numbers).
+Removes unwanted sections (e.g., references) and unwanted artifacts like figure/table/page references, non-ASCII characters, extra spaces, and erroneous punctuation.
+Uses regular expressions to remove leading zeros from numbers and other text adjustments.
+Encoding Fix:
+
+Attempts to fix encoding issues in the text to handle potential formatting errors.
+JSON Data Parsing:
+
+Loads JSON data that includes text content and extracts key fields such as the title, DOI, and full-text URL.
+Cleans the extracted content using the cleansing functions.
+PDF Generation:
+
+Uses the FPDF library to generate a PDF document with the extracted and cleaned content, including the title, DOI, and the full-text content.
+Sample Workflow
+Load a JSON file containing scientific data.
+Extract the title, DOI, and full text.
+Cleanse the text using the custom functions.
+Output the cleaned text and extracted data to a structured PDF.
 
 # Requirements
-
-To run the code, make sure you have the following Python libraries installed:
-
-    pandas
-    nltk
-    openpyxl
-    spacy
-    numpy
-
-You can install these by running:
+Python 3.x
+Jupyter Notebook
+Libraries:
+json
+re
+fpdf (for generating PDF files)
+You can install the required libraries using the following command:
 
 bash
+Copy code
+pip install fpdf
 
-pip install -r requirements.txt
+# Features
+Text Cleansing: Removes unwanted sections, figures, tables, and page references.
+Data Extraction: Extracts title, DOI, and full-text content from JSON files.
+PDF Report Generation: Generates a PDF with structured content, including the title, DOI, and full text.
 
-# How to Use
-
-    Input Data: Place your Excel file (e.g., filename.xlsx) in the root directory.
-    Run the Notebook:
-        Load the Excel file into a Pandas DataFrame.
-        Consolidate the data into a single text column.
-        Apply the cleansing functions provided in the notebook to process the text.
-    Functions:
-        cleanse_text(text): Cleans the text by removing unwanted sections and fixing formatting issues.
-        remove_leading_zeros(text): Removes unnecessary leading zeros from numbers.
-# Output
-
-The output will be a DataFrame with a csv cleansed version of the text that can be exported or used for further analysis.
+# Usage
+Load your scientific document in JSON format.
+Run the notebook to extract key fields and cleanse the content.
+A PDF file will be generated with the structured information.
